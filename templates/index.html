@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='utf-8'>
+  <title>Deven Rathod -Free Movie Server</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"/>
+ <script src="{{url_for('static',filename='script.js')}}"></script>
+
+    
+</head>
+
+<div class="c2">
+         <marquee><p>Made With 💙
+ by Deven </p></marquee>
+</div>
+<body>
+<header>
+  <div class="nav">
+  <hr/>
+<nav>
+
+  <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="https://api.whatsapp.com/send?phone=+911234567890&text=please%20add%20the%20movie">Request movie</a></li>
+  <li><a href="https://api.whatsapp.com/send?phone=+911234567890&text=want%20to%20contact%20you">Contact</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="upload.html">Upload Movies</a></li>
+
+   </ul>
+
+</nav>
+<hr/>
+</div>
+  <h1 class="headh1">Welcome To Free Movie Server</h1>
+     <h2 class="headh1">click on Show Button to see all movies</h2>
+     
+  <button class="nbtn" onclick="filterSelection('all')">Show</button>
+  
+  </header>
+
+<!-- movie upload code  -->
+<div class="cards">
+<a href="detail?movie_id=1"><div class="row">
+  <div class="column nature">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/1.jpg')}}" alt="Mountains" style="width:100%">
+      <h4>Evil Dead 2013</h4>
+    </div>
+    </a>
+  </div>
+  <a href="detail?movie_id=2">
+  <div class="column nature">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/2.jpg')}}" alt="Lights" style="width:100%">
+      <h4>Annabelle Creation (2017)</h4>
+    </div>
+  </div>
+  <a href="detail?movie_id=3">
+  <div class="column nature">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/3.jpg')}}" alt="Nature" style="width:100%">
+      <h4>Insidious The Last Key (2018)</h4>
+    </div>
+  </div>
+<a href="detail?movie_id=4">
+  <div class="column cars">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/4.jpg')}}" alt="Car" style="width:100%">
+      <h4>The Conjuring 2 2016</h4>
+    </div>
+  </div>
+  <a href="detail?movie_id=5">
+  <div class="column cars">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/5.jpg')}}" alt="Car" style="width:100%">
+      <h4>Dawn of Justice</h4>
+    </div>
+  </div>
+  <a href="detail?movie_id=6">
+  <div class="column cars">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/6.jpg')}}" alt="Car" style="width:100%">
+      <h4>Suicide Squad</h4>
+    </div>
+  </div>
+ <a href="detail?movie_id=7">
+  <div class="column people">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/7.jpg')}}" alt="People" style="width:100%" download>
+      <h4>John Wick Chapter 1</h4>
+    </div>
+    <a href="detail?movie_id=8">
+  </div>
+  <div class="column people">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/8.jpg')}}" alt="People" style="width:100%">
+      <h4>John Wick Chapter 2</h4>
+    </div>
+  </div>
+  <a href="detail?movie_id=9">
+  <div class="column people">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/9.jpg')}}" alt="People" style="width:100%">
+      <h4>John Wick Chapter 3</h4>
+    </div>
+  </div>
+  <a href="detail?movie_id=10">
+  <div class="column people">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/10.jpg')}}" alt="People" style="width:100%">
+      <h4>Lost In Space S1</h4>
+    </div>
+  </div>
+  <a href="detail?movie_id=11">
+  <div class="column people">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/11.jpg')}}" alt="People" style="width:100%">
+      <h4>Pacific Rim 2013</h4>
+    </div>
+  </div>
+  <a href="detail?movie_id=12">
+  <div class="column people">
+    <div class="content">
+      <img src="{{url_for('static',filename='assets/12.jpg')}}" alt="People" style="width:100%">
+      <h4>Pacific Rim Uprising 2017</h4>
+    </div>
+  </div>
+
+<!-- END GRID -->
+</div>
+
+
+  <!-- <footer>
+    <div>
+   Created by DevelopeSpot 
+    </div>
+  </footer> -->
+</body>
+</html>
