@@ -4,8 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset='utf-8'>
   <title>Deven Rathod -Free Movie Server</title>
-  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"/>
- <script src="{{url_for('static',filename='script.js')}}"></script>
+  <link rel="stylesheet" href="../static/style.css"/>
+ <script src="../static/script.js"></script>
 
     
 </head>
@@ -41,10 +41,10 @@
 
 <!-- movie upload code  -->
 <div class="cards">
-<a href="detail?movie_id=1"><div class="row">
+<!-- <a href="detail?movie_id=1"><div class="row"> -->
   <div class="column nature">
-    <div class="content">
-      <img src="{{url_for('static',filename='assets/1.jpg')}}" alt="Mountains" style="width:100%">
+    <div class="content" id=1 onclick=test(this.id)>
+      <img src="static/assets/1.jpg" alt="Mountains" style="width:100%">
       <h4>Evil Dead 2013</h4>
     </div>
     </a>
@@ -52,77 +52,77 @@
   <a href="detail?movie_id=2">
   <div class="column nature">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/2.jpg')}}" alt="Lights" style="width:100%">
+      <img src="static/assets/2.jpg" alt="Lights" style="width:100%">
       <h4>Annabelle Creation (2017)</h4>
     </div>
   </div>
   <a href="detail?movie_id=3">
   <div class="column nature">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/3.jpg')}}" alt="Nature" style="width:100%">
+      <img src="static/assets/3.jpg" alt="Nature" style="width:100%">
       <h4>Insidious The Last Key (2018)</h4>
     </div>
   </div>
 <a href="detail?movie_id=4">
   <div class="column cars">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/4.jpg')}}" alt="Car" style="width:100%">
+      <img src="static/assets/4.jpg" alt="Car" style="width:100%">
       <h4>The Conjuring 2 2016</h4>
     </div>
   </div>
   <a href="detail?movie_id=5">
   <div class="column cars">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/5.jpg')}}" alt="Car" style="width:100%">
+      <img src="static/assets/5.jpg" alt="Car" style="width:100%">
       <h4>Dawn of Justice</h4>
     </div>
   </div>
   <a href="detail?movie_id=6">
   <div class="column cars">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/6.jpg')}}" alt="Car" style="width:100%">
+      <img src="static/assets/6.jpg" alt="Car" style="width:100%">
       <h4>Suicide Squad</h4>
     </div>
   </div>
  <a href="detail?movie_id=7">
   <div class="column people">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/7.jpg')}}" alt="People" style="width:100%" download>
+      <img src="static/assets/7.jpg" alt="People" style="width:100%" download>
       <h4>John Wick Chapter 1</h4>
     </div>
     <a href="detail?movie_id=8">
   </div>
   <div class="column people">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/8.jpg')}}" alt="People" style="width:100%">
+      <img src="static/assets/8.jpg" alt="People" style="width:100%">
       <h4>John Wick Chapter 2</h4>
     </div>
   </div>
   <a href="detail?movie_id=9">
   <div class="column people">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/9.jpg')}}" alt="People" style="width:100%">
+      <img src="static/assets/9.jpg" alt="People" style="width:100%">
       <h4>John Wick Chapter 3</h4>
     </div>
   </div>
   <a href="detail?movie_id=10">
   <div class="column people">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/10.jpg')}}" alt="People" style="width:100%">
+      <img src="static/assets/10.jpg" alt="People" style="width:100%">
       <h4>Lost In Space S1</h4>
     </div>
   </div>
   <a href="detail?movie_id=11">
   <div class="column people">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/11.jpg')}}" alt="People" style="width:100%">
+      <img src="static/assets/11.jpg" alt="People" style="width:100%">
       <h4>Pacific Rim 2013</h4>
     </div>
   </div>
   <a href="detail?movie_id=12">
   <div class="column people">
     <div class="content">
-      <img src="{{url_for('static',filename='assets/12.jpg')}}" alt="People" style="width:100%">
+      <img src="static/assets/12.jpg" alt="People" style="width:100%">
       <h4>Pacific Rim Uprising 2017</h4>
     </div>
   </div>
@@ -138,3 +138,21 @@
   </footer> -->
 </body>
 </html>
+<script>
+  function test(id){
+    console.log(id)
+    location.href='detail.html?movie_id='+id
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === xhr.DONE) {
+            if (xhr.status === 200 || xhr.status === 201) {
+                console.log(xhr.responseText);
+            } else {
+                console.error(xhr.responseText);
+            }
+        }
+    };
+    xhr.open('GET', 'http://localhost:5000/movie');
+    xhr.send();
+  }
+</script>

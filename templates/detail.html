@@ -12,3 +12,20 @@
 </body>
 
 </html>
+
+<script>
+    window.onload=function(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === xhr.DONE) {
+                if (xhr.status === 200 || xhr.status === 201) {
+                    console.log(xhr.responseText);
+                } else {
+                    console.error(xhr.responseText);
+                }
+            }
+        };
+        xhr.open('GET', 'http://localhost:5000/ns_movie/movie');
+        xhr.send();
+    }
+</script>
