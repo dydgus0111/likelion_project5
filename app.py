@@ -4,8 +4,13 @@ from flask import Flask, request, Response, render_template
 from flask_restx import Resource, Api, fields
 from flask import abort, jsonify
 import requests
+from flask_cors import CORS
 app = Flask(__name__)
 api = Api(app)
+
+cors = CORS(app, resources={
+    r"/*": {"origin": "*"}
+})
 
 
 ns_movie = api.namespace('ns_movie', description='Movie APIs')
@@ -75,4 +80,4 @@ class movies_genre_movie(Resource):
         return Response(status=200)
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5001)

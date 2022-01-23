@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <h3> 제목 : {{ title }}</h3>
-    <h3> 감독 :{{ director }}</h3>
-    <h3> 장르 : {{ genre }}</h3>
-    <h3> 상영시간 : {{ runtime }}</h3>
-    <h3> 평점 : {{ rating }}</h3>
+    <h3 id="title"> 제목 : </h3>
+    <h3 id="director"> 감독 : </h3>
+    <h3 id="genre"> 장르 : </h3>
+    <h3 id="runtime"> 상영시간 : </h3>
+    <h3 id="rating"> 평점 : </h3>
 </body>
 
 </html>
@@ -18,16 +18,24 @@
         var id = url.searchParams.get("movie_id");
         console.log(id);
         var xhr = new XMLHttpRequest();
+        var tmp={}
         xhr.onreadystatechange = function() {
             if (xhr.readyState === xhr.DONE) {
                 if (xhr.status === 200 || xhr.status === 201) {
-                    console.log(xhr.responseText);
+                    console.log(xhr.response['data']);
+                    document.getElementById('title').innerHTML+=xhr.response['data']['title']
+                    document.getElementById('director').innerHTML+=xhr.response['data']['director']
+                    document.getElementById('genre').innerHTML+=xhr.response['data']['genre']
+                    document.getElementById('runtime').innerHTML+=xhr.response['data']['runtime']
+                    document.getElementById('rating').innerHTML+=xhr.response['data']['rating']
+
                 } else {
                     console.error(xhr.responseText);
                 }
             }
         };
         xhr.open('GET', 'http://localhost:5000/ns_movie/movie/'+id);
+        xhr.responseType='json'
         xhr.send();
     }
 </script>
