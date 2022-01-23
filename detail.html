@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h3> 제목 : {{ title }}</h3>
+    <h3> 감독 :{{ director }}</h3>
+    <h3> 장르 : {{ genre }}</h3>
+    <h3> 상영시간 : {{ runtime }}</h3>
+    <h3> 평점 : {{ rating }}</h3>
+</body>
+
+</html>
+
+<script>
+    window.onload=function(){
+        var url_string = window.location.href
+        console.log(url_string)
+        var url = new URL(url_string);
+        var id = url.searchParams.get("movie_id");
+        console.log(id);
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === xhr.DONE) {
+                if (xhr.status === 200 || xhr.status === 201) {
+                    console.log(xhr.responseText);
+                } else {
+                    console.error(xhr.responseText);
+                }
+            }
+        };
+        xhr.open('GET', 'http://localhost:5000/ns_movie/movie/'+id);
+        xhr.send();
+    }
+</script>

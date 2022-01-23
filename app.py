@@ -74,24 +74,5 @@ class movies_genre_movie(Resource):
 
         return Response(status=200)
 
-@app.route("/home")
-def homepage():
-    return render_template("index.html")
-
-@app.route("/detail")
-def detailpage():
-    id=request.args.get('movie_id')
-    res=requests.get('http://localhost:5000/ns_movie/movie/'+str(id))
-    data=res.json()
-    print(res.json())
-    title=data['data']['title']
-    director=data['data']['director']
-    genre=data['data']['genre']
-    rating=data['data']['rating']
-    runtime=data['data']['runtime']
-    movie_id=data['movie_id']
-    image_file="assets/"+str(movie_id)+".jpg"
-    return render_template("http://10.0.0.0/detail.html", title=title,director=director,genre=genre,rating=rating,runtime=runtime,movie_id=movie_id,image_file=image_file)
-
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
